@@ -1,0 +1,95 @@
+/* COLOR SCHEMA
+    - #fcefe9
+    - #ecebec
+    - #c8bcb4
+    - #fcfcf9
+    - #704f5b 
+ */
+
+body {
+    font-family: 'Playfair Display', serif;
+    background-color: #fcefe9;
+
+    // HEADER
+    .headerMgmt {
+        background-color: #704f5b;
+
+        .navbar {
+            padding: 1rem 0;
+
+            .container {
+                .navbar-brand {
+                    color: #fcfcf9;
+                    font-size: 2rem;
+                    font-weight: 500;
+                }
+
+                .collapse {
+                    justify-content: end;
+
+                    .navbar-nav {
+                        .nav-link {
+                            color: rgba(252, 252, 247, 0.6);
+                            font-size: 1.2rem;
+                            padding: 1rem;
+                            transform: scale(1);
+                            transition: all .3s ease-in-out;
+
+                            &.active {
+                                color: #fcfcf9;
+                            }
+
+                            &:hover {
+                                color: #fcfcf9;
+                                transform: scale(1.2);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // TABLE MGMT
+    .tableMgmt {
+        margin-top: 3rem;
+
+        .container {
+            .table_title {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background-color: #c8bcb4;
+                color: #704f5b;
+                border-radius: 1rem 1rem 0 0;
+
+                h4 {
+                    margin-bottom: 0;
+                    font-size: 1.75rem;
+                    padding: 2rem 1rem;
+                    text-transform: capitalize;
+                }
+
+                .table_settings {
+                    display: flex;
+                    justify-content: space-around;
+                    padding-right: 1rem;
+
+                    p {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+
+            .table-striped {
+                thead {
+                    tr {
+                        th {
+                            font-size: 1.2rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
