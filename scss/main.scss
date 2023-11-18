@@ -4,6 +4,7 @@
     - #c8bcb4
     - #fcfcf9
     - #704f5b 
+    - #A8A196
  */
 
 body {
@@ -88,6 +89,63 @@ body {
                             font-size: 1.2rem;
                         }
                     }
+                }
+            }
+        }
+    }
+
+    // MODAL ADD 
+    .modalAdd {
+        .modal-dialog {
+            .modal-content {
+                .modal-header {
+                    justify-content: center;
+                    background-color: #fcefe9;
+
+                    .modal-title {
+                        font-size: 2rem;
+                        color: #704f5b;
+                        font-weight: 500;
+                    }
+                }
+
+                .modal-body {
+                    background-color: #fcfcf9;
+                    padding: 1.5rem;
+
+                    #myForm {
+                        .form-group {
+                            margin: 1rem 0;
+
+                            .input-group {
+                                height: 3rem;
+
+                                .input-group-prepend {
+                                    .input-group-text {
+                                        height: 3rem;
+                                        width: 3rem;
+                                        justify-content: center;
+                                        background-color: #fcefe9;
+                                        border-radius: 5px 0 0 5px;
+
+                                        i {
+                                            font-size: 1.3rem;
+                                            color: #704f5b;
+                                        }
+                                    }
+                                }
+
+                            }
+
+                            .noti-field {
+                                color: #BE3144;
+                            }
+                        }
+                    }
+                }
+
+                .modal-footer {
+                    background-color: #fcfcf9;
                 }
             }
         }
