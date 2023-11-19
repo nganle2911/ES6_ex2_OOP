@@ -1,3 +1,6 @@
+import { getEleById } from "./controller.js";
+
+
 let listPerson = []; 
 
 /**
@@ -11,48 +14,47 @@ let listPerson = [];
  *  - If type == 3 => customer => display 3 more inputs of companyName, invoiceValue, review
  * Output: display more input elements according to the type of person 
  */
-// ! try to find another way to be more simple and shorter 
-document.getElementById("typePerson").onchange = () => {
-    let type = document.getElementById("typePerson").value;
+getEleById("typePerson").onchange = () => {
+    let type = getEleById("typePerson").value;
 
-    if (type === "1") {
-        document.getElementById("inputMath").style.display = "block";
-        document.getElementById("inputPhysics").style.display = "block";
-        document.getElementById("inputChemistry").style.display = "block";
+    // list IDs of all html elements that need to be changed 
+    const elements = ["inputMath", "inputPhysics", "inputChemistry", "inputWorkingDay", "inputWage", "inputCompany", "inputInvoice", "inputReview"];
 
-        document.getElementById("inputWorkingDay").style.display = "none";
-        document.getElementById("inputWage").style.display = "none";
-        document.getElementById("inputCompany").style.display = "none";
-        document.getElementById("inputInvoice").style.display = "none";
-        document.getElementById("inputReview").style.display = "none";
-    } else if (type === "2") {
-        document.getElementById("inputMath").style.display = "none";
-        document.getElementById("inputPhysics").style.display = "none";
-        document.getElementById("inputChemistry").style.display = "none";
-        document.getElementById("inputCompany").style.display = "none";
-        document.getElementById("inputInvoice").style.display = "none";
-        document.getElementById("inputReview").style.display = "none";
+    // function to hide all html elements 
+    const hideAll = () => {
+        elements.forEach((element) => {
+            getEleById(element).style.display = "none";
+        })
+    };
 
-        document.getElementById("inputWorkingDay").style.display = "block";
-        document.getElementById("inputWage").style.display = "block";
-    } else if (type === "3") {
-        document.getElementById("inputCompany").style.display = "block";
-        document.getElementById("inputInvoice").style.display = "block";
-        document.getElementById("inputReview").style.display = "block";
-        
-        document.getElementById("inputMath").style.display = "none";
-        document.getElementById("inputPhysics").style.display = "none";
-        document.getElementById("inputChemistry").style.display = "none";
-        document.getElementById("inputWorkingDay").style.display = "none";
-        document.getElementById("inputWage").style.display = "none";
-    } else {
-        document.getElementById("inputCompany").style.display = "none";
-        document.getElementById("inputInvoice").style.display = "none";
-        document.getElementById("inputReview").style.display = "none";
-        document.getElementById("inputMath").style.display = "none";
-        document.getElementById("inputPhysics").style.display = "none";
-        document.getElementById("inputChemistry").style.display = "none";
-        document.getElementById("inputWorkingDay").style.display = "none";
-        document.getElementById("inputWage").style.display = "none";
+    // create 3 arrays - student, employee, customer from array elements 
+    const students = elements.slice(0, 3);
+    const employees = elements.slice(3, 5);
+    const customers = elements.slice(5, 8);
+
+    switch (type) {
+        case "1":
+            hideAll();
+            students.forEach((student) => {
+                document.getElementById(student).style.display = "block";
+            })
+            break;
+        case "2":
+            hideAll();
+            employees.forEach((employee) => {
+                document.getElementById(employee).style.display = "block";
+            })
+            break;
+        case "3":
+            hideAll();
+            customers.forEach((customer) => {
+                document.getElementById(customer).style.display = "block";
+            })
+            break;
+        default:
+            hideAll();
+            break;
     }
 }
+
+
