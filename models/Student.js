@@ -1,8 +1,8 @@
 import Person from "./Person.js";
 
 class Student extends Person {
-    constructor(_id, _name, _address, _email, _math, _physics, _chemistry, _averageScore) {
-        super(_id, _name, _address, _email); 
+    constructor(_id, _name, _address, _email, _type, _math, _physics, _chemistry, _averageScore) {
+        super(_id, _name, _address, _email, _type); 
         this.math = _math;
         this.physics = _physics;
         this.chemistry = _chemistry; 

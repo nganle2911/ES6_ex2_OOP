@@ -58,10 +58,33 @@ body .tableMgmt .container .table_title h4 {
 body .tableMgmt .container .table_title .table_settings {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   padding-right: 1rem;
 }
-body .tableMgmt .container .table_title .table_settings p {
-  margin-bottom: 0;
+body .tableMgmt .container .table_title .table_settings .dropdown {
+  margin-right: 0.5rem;
+}
+body .tableMgmt .container .table_title .table_settings .dropdown .dropdown-toggle {
+  background-color: #704f5b;
+  color: #fcfcf9;
+  border: none;
+  transform: translateX(0);
+  transition: all 0.3s ease-in-out;
+}
+body .tableMgmt .container .table_title .table_settings .dropdown .dropdown-toggle:hover {
+  background-color: rgba(110, 78, 90, 0.8);
+  transform: translateY(3px);
+}
+body .tableMgmt .container .table_title .table_settings .btnAdd button.btn {
+  background-color: #704f5b;
+  color: #fcfcf9;
+  border: none;
+  transform: translateX(0);
+  transition: all 0.3s ease-in-out;
+}
+body .tableMgmt .container .table_title .table_settings .btnAdd button.btn:hover {
+  background-color: rgba(110, 78, 90, 0.8);
+  transform: translateY(3px);
 }
 body .tableMgmt .container .table-striped thead tr th {
   font-size: 1.2rem;

@@ -47,11 +47,19 @@
             <div class="table_title">
                 <h4>research & teaching institution management</h4>
                 <div class="table_settings">
-                    <p>Add</p>
-                    <p>Arrange</p>
-                    <div>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-funnel-fill"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">By type</a></li>
+                            <li><a class="dropdown-item" href="#">By name ascending</a></li>
+                            <li><a class="dropdown-item" href="#">By name descending</a></li>
+                        </ul>
+                    </div>
+                    <div class="btnAdd">
                         <!-- Modal trigger button -->
-                        <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#myModal">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
                             Add Person
                         </button>
                     </div>
@@ -282,7 +290,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Add</button>
+                    <button onclick="addPerson()" type="button" class="btn btn-primary">Add</button>
                 </div>
             </div>
         </div>

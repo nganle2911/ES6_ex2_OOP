@@ -74,10 +74,39 @@ body {
                 .table_settings {
                     display: flex;
                     justify-content: space-around;
+                    align-items: center;
                     padding-right: 1rem;
 
-                    p {
-                        margin-bottom: 0;
+                    .dropdown {
+                        margin-right: 0.5rem;
+                        
+                        .dropdown-toggle {
+                            background-color: #704f5b;
+                            color: #fcfcf9;
+                            border: none;
+                            transform: translateX(0);
+                            transition: all .3s ease-in-out;
+
+                            &:hover {
+                                background-color: rgba(110, 78, 90, 0.8);
+                                transform: translateY(3px);
+                            }
+                        }
+                    }
+
+                    .btnAdd {
+                        button.btn {
+                            background-color: #704f5b;
+                            color: #fcfcf9;
+                            border: none;
+                            transform: translateX(0);
+                            transition: all .3s ease-in-out;
+
+                            &:hover {
+                                background-color: rgba(110, 78, 90, 0.8);
+                                transform: translateY(3px);
+                            }
+                        }
                     }
                 }
             }
