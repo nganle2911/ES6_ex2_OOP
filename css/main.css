@@ -125,3 +125,60 @@ body .modalAdd .modal-dialog .modal-content .modal-body #myForm .form-group .not
 body .modalAdd .modal-dialog .modal-content .modal-footer {
   background-color: #fcfcf9;
 }
+body .modalDetail .modal-dialog .modal-content .modal-header {
+  justify-content: center;
+}
+body .modalDetail .modal-dialog .modal-content .modal-header .modal-title {
+  color: #704f5b;
+  font-size: 2rem;
+}
+body .modalDetail .modal-dialog .modal-content .modal-body .detailDiv {
+  background-color: #fcefe9;
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+body .modalDetail .modal-dialog .modal-content .modal-body .detailDiv p {
+  margin-bottom: 1rem;
+  padding-left: 0;
+}
+body .modalDetail .modal-dialog .modal-content .modal-body .detailAbout p:nth-child(2) {
+  color: #704f5b;
+  font-size: 1.3rem;
+}
+body .modalDetail .modal-dialog .modal-content .modal-body .detailContact .detailContent {
+  display: flex;
+}
+body .modalDetail .modal-dialog .modal-content .modal-body .detailContact .detailContent .detailEmail {
+  margin-right: 4rem;
+}
+body .modalDetail .modal-dialog .modal-content .modal-body .detailContact .detailContent .detailEmail p {
+  margin-bottom: 0;
+}
+body .modalDetail .modal-dialog .modal-content .modal-body .detailContact .detailContent .detailEmail p:nth-child(2) {
+  color: #704f5b;
+}
+body .modalDetail .modal-dialog .modal-content .modal-body .detailContact .detailContent .detailAddress {
+  margin-left: 4rem;
+}
+body .modalDetail .modal-dialog .modal-content .modal-body .detailContact .detailContent .detailAddress p {
+  margin-bottom: 0;
+}
+body .modalDetail .modal-dialog .modal-content .modal-body .detailContact .detailContent .detailAddress p:nth-child(2) {
+  color: #704f5b;
+}
+body .modalDetail .modal-dialog .modal-content .modal-body .detailType button {
+  border-radius: 30px;
+}
+body .modalDetail .modal-dialog .modal-content .modal-body .detailInfo {
+  margin: 0;
+}
+body .modalDetail .modal-dialog .modal-content .modal-body .detailInfo .detailItem {
+  margin-bottom: 1rem;
+  padding-left: 0;
+}
+body .modalDetail .modal-dialog .modal-content .modal-body .detailInfo .detailItem p {
+  margin-bottom: 0;
+}
+body .modalDetail .modal-dialog .modal-content .modal-body .detailInfo .detailItem p:nth-child(2) {
+  color: #704f5b;
+}

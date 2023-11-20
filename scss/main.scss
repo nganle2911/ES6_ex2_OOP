@@ -79,7 +79,7 @@ body {
 
                     .dropdown {
                         margin-right: 0.5rem;
-                        
+
                         .dropdown-toggle {
                             background-color: #704f5b;
                             color: #fcfcf9;
@@ -119,6 +119,8 @@ body {
                         }
                     }
                 }
+
+                tbody#tbHumanMgmt {}
             }
         }
     }
@@ -176,6 +178,100 @@ body {
                 .modal-footer {
                     background-color: #fcfcf9;
                 }
+            }
+        }
+    }
+
+    // MODAL DETAIL 
+    .modalDetail {
+        .modal-dialog {
+            .modal-content {
+
+                .modal-header {
+                    justify-content: center;
+
+                    .modal-title {
+                        color: #704f5b;
+                        font-size: 2rem;
+                    }
+                }
+
+                .modal-body {
+                    .detailDiv {
+                        background-color: #fcefe9;
+                        margin-bottom: 1rem;
+                        padding: 1rem;
+
+                        p {
+                            margin-bottom: 1rem;
+                            padding-left: 0;
+                        }
+                    }
+
+                    .detailAbout {
+                        p {
+                            &:nth-child(2) {
+                                color: #704f5b;
+                                font-size: 1.3rem;
+                            }
+                        }
+                    }
+
+                    .detailContact {
+                        .detailContent {
+                            display: flex;
+
+                            .detailEmail {
+                                margin-right: 4rem;
+
+                                p {
+                                    margin-bottom: 0;
+
+                                    &:nth-child(2) {
+                                        color: #704f5b;
+                                    }
+                                }
+                            }
+
+                            .detailAddress {
+                                margin-left: 4rem;
+
+                                p {
+                                    margin-bottom: 0;
+
+                                    &:nth-child(2) {
+                                        color: #704f5b;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .detailType {
+                        button {
+                            border-radius: 30px;
+                        }
+                    }
+
+                    .detailInfo {
+                        margin: 0;
+
+                        .detailItem {
+                            margin-bottom: 1rem;
+                            padding-left: 0;
+
+                            p {
+                                margin-bottom: 0;
+
+                                &:nth-child(2) {
+                                    color: #704f5b;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .modal-footer {}
             }
         }
     }

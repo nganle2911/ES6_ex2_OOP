@@ -57,8 +57,13 @@ const renderListPeople = (personList) => {
                 <td>${person.email}</td>
                 <td>${person.address}</td>
                 <td>${person.type}</td>
-                <td></td>
-                <td></td>
+                <td>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myDetail">
+                        <i class="bi bi-eye-fill"></i>
+                    </button>
+                    <button class="btn btn-warning"><i class="bi bi-pencil-square"></i></button>
+                    <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                </td>
             </tr>
         `;
     });
