@@ -15,7 +15,7 @@ const getDataModal = () => {
     let address = getEleById("address").value;
     let type = getEleById("typePerson").value;
 
-    if (type === "1") {
+    if (type === "student") {
         let math = getEleById("math").value;
         let physics = getEleById("physics").value;
         let chemistry = getEleById("chemistry").value;
@@ -23,14 +23,14 @@ const getDataModal = () => {
         let student = new Student(id, name, address, email, type, math, physics, chemistry);
 
         return student; 
-    } else if (type === "2") {
+    } else if (type === "employee") {
         let workingDay = getEleById("workingDay").value;
         let dailyWage = getEleById("dailyWage").value;
 
         let employee = new Employee(id, name, address, email, type, workingDay, dailyWage);
         
         return employee; 
-    } else if (type === "3") {
+    } else if (type === "customer") {
         let companyName = getEleById("companyName").value;
         let invoiceValue = getEleById("invoiceValue").value;
         let review = getEleById("review").value;
@@ -49,17 +49,6 @@ const renderListPeople = (personList) => {
     let contentHTML = ''; 
 
     personList.map((person) => {
-        // Get value of type 
-        if (person.type === "1") {
-            person.type = "student";
-        } else if (person.type === "2") {
-            person.type = "employee";
-        } else if (person.type === "3") {
-            person.type = "customer";
-        } else {
-            person.type = "undefined";
-        }
-
         // Add content for <tr>
         contentHTML += `
             <tr>

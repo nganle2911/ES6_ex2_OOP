@@ -1,6 +1,7 @@
 import Customer from "../models/Customer.js";
 import Employee from "../models/Employee.js";
 import Person from "../models/Person.js";
+import Student from "../models/Student.js";
 import { getDataModal, getEleById, renderListPeople } from "./controller.js";
 
 let listPerson = []; 
@@ -35,19 +36,19 @@ getEleById("typePerson").onchange = () => {
     const customers = elements.slice(5, 8);
 
     switch (type) {
-        case "1":
+        case "student":
             hideAll();
             students.forEach((student) => {
                 document.getElementById(student).style.display = "block";
             })
             break;
-        case "2":
+        case "employee":
             hideAll();
             employees.forEach((employee) => {
                 document.getElementById(employee).style.display = "block";
             })
             break;
-        case "3":
+        case "customer":
             hideAll();
             customers.forEach((customer) => {
                 document.getElementById(customer).style.display = "block";
@@ -108,11 +109,11 @@ const getLocalStorage = () => {
         console.log("dataArr", dataArr);
 
         listPerson = dataArr.map((item) => {
-            if (item.type === "student") {
+            if (item.type == "student") {
                 return new Student(item.id, item.name, item.address, item.email, item.type, item.math, item.physics, item.chemistry); 
-            } else if (item.type === "employee") {
+            } else if (item.type == "employee") {
                 return new Employee(item.id, item.name, item.address, item.email, item.type, item.workingDay, item.dailyWage);
-            } else if (item.type === "customer") {
+            } else if (item.type == "customer") {
                 return new Customer(item.id, item.name, item.address, item.email, item.type, item.companyName, item.invoiceValue, item.review); 
             } else {
                 return new Person(item.id, item.name, item.address, item.email, item.type); 
@@ -123,6 +124,4 @@ const getLocalStorage = () => {
         renderListPeople(listPerson);
     }
 }
-
 getLocalStorage();
-
