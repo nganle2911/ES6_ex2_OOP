@@ -125,6 +125,9 @@ body .modalAdd .modal-dialog .modal-content .modal-body #myForm .form-group .not
 body .modalAdd .modal-dialog .modal-content .modal-footer {
   background-color: #fcfcf9;
 }
+body .modalDetail .modal-dialog .modal-content {
+  width: 700px;
+}
 body .modalDetail .modal-dialog .modal-content .modal-header {
   justify-content: center;
 }
@@ -144,26 +147,13 @@ body .modalDetail .modal-dialog .modal-content .modal-body .detailDiv p {
 body .modalDetail .modal-dialog .modal-content .modal-body .detailAbout p:nth-child(2) {
   color: #704f5b;
   font-size: 1.3rem;
+  text-transform: uppercase;
 }
-body .modalDetail .modal-dialog .modal-content .modal-body .detailContact .detailContent {
-  display: flex;
-}
-body .modalDetail .modal-dialog .modal-content .modal-body .detailContact .detailContent .detailEmail {
-  margin-right: 4rem;
-}
-body .modalDetail .modal-dialog .modal-content .modal-body .detailContact .detailContent .detailEmail p {
+body .modalDetail .modal-dialog .modal-content .modal-body .detailContact .detailContent .col-6 p:nth-child(1) {
   margin-bottom: 0;
 }
-body .modalDetail .modal-dialog .modal-content .modal-body .detailContact .detailContent .detailEmail p:nth-child(2) {
-  color: #704f5b;
-}
-body .modalDetail .modal-dialog .modal-content .modal-body .detailContact .detailContent .detailAddress {
-  margin-left: 4rem;
-}
-body .modalDetail .modal-dialog .modal-content .modal-body .detailContact .detailContent .detailAddress p {
-  margin-bottom: 0;
-}
-body .modalDetail .modal-dialog .modal-content .modal-body .detailContact .detailContent .detailAddress p:nth-child(2) {
+body .modalDetail .modal-dialog .modal-content .modal-body .detailContact .detailContent .col-6 p:nth-child(2) {
+  margin-bottom: 0.5rem;
   color: #704f5b;
 }
 body .modalDetail .modal-dialog .modal-content .modal-body .detailType button {
@@ -173,7 +163,7 @@ body .modalDetail .modal-dialog .modal-content .modal-body .detailInfo {
   margin: 0;
 }
 body .modalDetail .modal-dialog .modal-content .modal-body .detailInfo .detailItem {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   padding-left: 0;
 }
 body .modalDetail .modal-dialog .modal-content .modal-body .detailInfo .detailItem p {

@@ -186,7 +186,7 @@ body {
     .modalDetail {
         .modal-dialog {
             .modal-content {
-
+                width: 700px;
                 .modal-header {
                     justify-content: center;
 
@@ -213,37 +213,25 @@ body {
                             &:nth-child(2) {
                                 color: #704f5b;
                                 font-size: 1.3rem;
+                                text-transform: uppercase;
                             }
                         }
                     }
 
                     .detailContact {
                         .detailContent {
-                            display: flex;
-
-                            .detailEmail {
-                                margin-right: 4rem;
-
+                            .col-6 {
                                 p {
-                                    margin-bottom: 0;
-
+                                    &:nth-child(1) {
+                                        margin-bottom: 0;
+                                    }
                                     &:nth-child(2) {
+                                        margin-bottom: 0.5rem;
                                         color: #704f5b;
                                     }
                                 }
                             }
-
-                            .detailAddress {
-                                margin-left: 4rem;
-
-                                p {
-                                    margin-bottom: 0;
-
-                                    &:nth-child(2) {
-                                        color: #704f5b;
-                                    }
-                                }
-                            }
+                    
                         }
                     }
 
@@ -257,7 +245,7 @@ body {
                         margin: 0;
 
                         .detailItem {
-                            margin-bottom: 1rem;
+                            margin-bottom: 0.5rem;
                             padding-left: 0;
 
                             p {
