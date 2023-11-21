@@ -67,11 +67,10 @@ const renderListPeople = (personList) => {
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myDetail_${person.id}">
                         <i class="bi bi-eye-fill"></i>
                     </button>
-
                     <!-- Add Modal Content Here -->
                     ${contentModalDetail}
                     <button class="btn btn-secondary"><i class="bi bi-pencil-square"></i></button>
-                    <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                    <button onclick="deletePerson(${person.id})" class="btn btn-danger"><i class="bi bi-trash"></i></button>
                 </td>
             </tr>
         `;

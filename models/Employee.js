@@ -1,11 +1,11 @@
 import Person from "./Person.js";
 
 class Employee extends Person {
-    constructor(_id, _name, _address, _email, _type, _workingDay, _dailyWage) {
-        super(_id, _name, _address, _email, _type);
+    constructor(_id, _name, _address, _email, _type, _workingDay, _dailyWage, _salary) {
+        super(_id, _name, _address, _email, _type, _salary);
         this.workingDay = _workingDay;
         this.dailyWage = _dailyWage;
-        this.salary = 0;
+        this.salary = _salary;
     }
 
     // todo: method of calculating total of salary 

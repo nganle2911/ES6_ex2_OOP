@@ -75,13 +75,11 @@ getEleById("typePerson").onchange = () => {
 window.addPerson = () => {
     // get data entered by user & create a new object from data
     let person = getDataModal(); 
-    console.log("person", person);
 
     // check validation  
 
     // push this object to listPeople
-    listPerson.push(person);
-    console.log("listPeople", listPerson);
+    listPerson = [...listPerson, person];
 
     // save to localStorage 
     saveLocalStorage(); 
@@ -89,6 +87,40 @@ window.addPerson = () => {
     // render listPerson on UI
     renderListPeople(listPerson);
 }
+
+/**
+ * TODO: Delete person
+ * *3-BLOCK MODEL
+ * Input:
+ *  - id of item you want to delete 
+ * Logical Execution:
+ *  - find index of item you want to delete 
+ *  - using splice to delete that item at the position of index 
+ *  - render listPerson 
+ *  - save to localStorage 
+ * Output: 
+ *  - new array (without item deleted) 
+ */
+window.deletePerson = (idClicked) => {
+    // find index 
+    let indexDelete = listPerson.findIndex(value => value.id == idClicked);
+    
+    // using splice to delete 
+    listPerson.splice(indexDelete, 1); 
+    
+    // render listPerson
+    renderListPeople(listPerson);
+
+    saveLocalStorage();
+}
+
+/**
+ * TODO: Update person
+ * Input: 
+ *  - 
+ * Logical Execution:
+ * Output: 
+ */
 
 // TODO: Save data to localStorage 
 const saveLocalStorage = () => {
@@ -110,9 +142,9 @@ const getLocalStorage = () => {
 
         listPerson = dataArr.map((item) => {
             if (item.type == "student") {
-                return new Student(item.id, item.name, item.address, item.email, item.type, item.math, item.physics, item.chemistry); 
+                return new Student(item.id, item.name, item.address, item.email, item.type, item.math, item.physics, item.chemistry, item.averageScore); 
             } else if (item.type == "employee") {
-                return new Employee(item.id, item.name, item.address, item.email, item.type, item.workingDay, item.dailyWage);
+                return new Employee(item.id, item.name, item.address, item.email, item.type, item.workingDay, item.dailyWage, item.salary);
             } else if (item.type == "customer") {
                 return new Customer(item.id, item.name, item.address, item.email, item.type, item.companyName, item.invoiceValue, item.review); 
             } else {
@@ -124,4 +156,5 @@ const getLocalStorage = () => {
         renderListPeople(listPerson);
     }
 }
+
 getLocalStorage();
