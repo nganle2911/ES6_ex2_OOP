@@ -7,6 +7,13 @@ import Student from "../models/Student.js";
 const getEle = (selector) => document.querySelector(selector);
 const getEleById = (selectorId) => document.getElementById(selectorId);
 
+// TODO: Hide all html elements of different type person
+const hideAll = (htmlElements) => {
+    htmlElements.forEach((element) => {
+        getEleById(element).style.display = "none";
+    });
+}
+
 // TODO: Get data from modal add 
 const getDataModal = () => {
     let id = getEleById("id").value;
@@ -69,7 +76,7 @@ const renderListPeople = (personList) => {
                     </button>
                     <!-- Add Modal Content Here -->
                     ${contentModalDetail}
-                    <button class="btn btn-secondary"><i class="bi bi-pencil-square"></i></button>
+                    <button onclick="editPerson(${person.id})" class="btn btn-secondary"><i class="bi bi-pencil-square"></i></button>
                     <button onclick="deletePerson(${person.id})" class="btn btn-danger"><i class="bi bi-trash"></i></button>
                 </td>
             </tr>
@@ -199,5 +206,5 @@ const displayDetailInfo = (personObject) => {
 
 
 export {
-    getEle, getEleById, getDataModal, renderListPeople, displayModalDetail, displayDetailInfo
+    getEle, getEleById, hideAll, getDataModal, renderListPeople, displayModalDetail, displayDetailInfo
 }

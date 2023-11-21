@@ -48,7 +48,43 @@ const checkRange = (value, idErr, name, n1, n2) => {
     return false; 
 }
 
+// TODO: Check if type person is valid 
+const checkType = (value, idErr) => {
+    if (value == "student" || value == "employee" || value == "customer") {
+        getEleById(idErr).style.display = "none";
+        return true; 
+    }
+    getEleById(idErr).style.display = "block";
+    getEleById(idErr).innerText = "Please enter the correct type!";
+    return false; 
+}
+
+// TODO: Check if ID existed 
+const checkId = (value, idErr, personList) => {
+    let index = personList.findIndex(item => item.id == value); 
+
+    if (index != -1) {
+        getEleById(idErr).style.display = "block";
+        getEleById(idErr).innerText = "ID already existed! Please enter another ID!";
+        return false;
+    }
+    getEleById(idErr).style.display = "none";
+    return true; 
+}
+
+// TODO: Check if input field is all 
+const checkNumber = (value, idErr) => {
+    if (!isNaN(value)) {
+        getEleById(idErr).style.display = "none";
+        return true;
+    }
+    getEleById(idErr).style.display = "block";
+    getEleById(idErr).innerText = "It must be number!";
+    return false; 
+}
+
+
 export {
-    checkEmpty, checkAllLetter, checkEmail, checkRange
+    checkEmpty, checkAllLetter, checkEmail, checkRange, checkType, checkId, checkNumber
 }
 
