@@ -6,7 +6,7 @@ import { getDataModal, getEleById, hideAll, renderListPeople } from "./controlle
 import { checkAllLetter, checkEmail, checkEmpty, checkId, checkNumber, checkRange, checkType } from "./validation.js";
 
 
-// list IDs of all html elements that need to be changed for different type of person
+// list IDs of all html elements that need to be changed for different types of person
 const htmlElements = ["inputMath", "inputPhysics", "inputChemistry", "inputWorkingDay", "inputWage", "inputCompany", "inputInvoice", "inputReview"];
 
 let listPerson = []; 
@@ -26,9 +26,10 @@ let listPerson = [];
 getEleById("typePerson").onchange = () => {
     let type = getEleById("typePerson").value;
 
+    // hide all html elements 
     hideAll(htmlElements);
 
-    // create 3 arrays - student, employee, customer from array elements 
+    // create 3 arrays - student, employee, customer from array htmlElements  
     const students = htmlElements.slice(0, 3);
     const employees = htmlElements.slice(3, 5);
     const customers = htmlElements.slice(5, 8);
@@ -188,7 +189,81 @@ window.editPerson = (idClicked) => {
         getEleById("invoiceValue").value = editPerson.invoiceValue;
         getEleById("review").value = editPerson.review;
     }
-    getEleById("id").disabled = true; 
+    getEleById("id").disabled = true;
+    getEleById("typePerson").disabled = true; 
+}
+
+// TODO: Update person
+window.updatePerson = () => {
+    // retrieve the edited data from the modal
+    let updatedPerson = {
+        id: getEleById("id").value,
+        name: getEleById("userName").value, 
+        email: getEleById("email").value,
+        address: getEleById("address").value,
+        type: getEleById("typePerson").value,
+        math: getEleById("math").value * 1,
+        physics: getEleById("physics").value * 1,
+        chemistry: getEleById("chemistry").value * 1,
+        averageScore: "" * 1,
+        workingDay: getEleById("workingDay").value * 1,
+        dailyWage: getEleById("dailyWage").value * 1,
+        salary: "" * 1,
+        companyName: getEleById("companyName").value,
+        invoiceValue: getEleById("invoiceValue").value,
+        review: getEleById("review").value
+    }; 
+    // console.log("updatedPerson", updatedPerson);
+
+    // find the index of updatedPerson in listPerson
+    let index = listPerson.findIndex(item => item.id == updatedPerson.id);
+
+    if (index != -1) {  
+        // update 
+        listPerson[index] = updatedPerson;
+        console.log("updatedPerson", listPerson[index]);
+
+        // check validation when updating
+        let isValid = true; 
+
+        // name field  
+        isValid &= checkEmpty(listPerson[index].name, "notiName") && checkAllLetter(listPerson[index].name, "notiName");
+        // email field 
+        isValid &= checkEmpty(listPerson[index].email, "notiEmail") && checkEmail(listPerson[index].email, "notiEmail");
+        // address field
+        isValid &= checkEmpty(listPerson[index].address, "notiAddress");
+        // type field 
+        // isValid &= checkType(listPerson[index].type, "notiType");
+        if (listPerson[index].type == "student") {
+            isValid &= checkEmpty(listPerson[index].math, "notiMath") && checkRange(listPerson[index].math, "notiMath", "Math", 0, 10);
+            isValid &= checkEmpty(listPerson[index].physics, "notiPhysics") && checkRange(listPerson[index].physics, "notiPhysics", "Physics", 0, 10);
+            isValid &= checkEmpty(listPerson[index].chemistry, "notiChemistry") && checkRange(listPerson[index].chemistry, "notiChemistry", "Chemistry", 0, 10);
+        } else if (listPerson[index].type == "employee") {
+            isValid &= checkEmpty(listPerson[index].workingDay, "notiWorkingDay") && checkRange(listPerson[index].workingDay, "notiWorkingDay", "Working days", 0, 31);
+            isValid &= checkEmpty(listPerson[index].dailyWage, "notiDailyWage") && checkRange(listPerson[index].dailyWage, "notiDailyWage", "Daily wage", 20, 500);
+        } else {
+            isValid &= checkEmpty(listPerson[index].companyName, "notiCompanyName");
+            isValid &= checkEmpty(listPerson[index].invoiceValue, "notiInvoice") && checkRange(listPerson[index].invoiceValue, "notiInvoice", "Invoice value", 100, 2500);
+            isValid &= checkEmpty(listPerson[index].review, "notiReview");
+        }
+
+        if (isValid) {
+            // console.log("updated info", listPerson[index]);
+            if (listPerson[index].type == "student") {
+                listPerson[index] = new Student(updatedPerson.id, updatedPerson.name, updatedPerson.address, updatedPerson.email, updatedPerson.type, updatedPerson.math, updatedPerson.physics, updatedPerson.chemistry, updatedPerson.averageScore);
+                listPerson[index].calculateAverageScore();
+
+            } else if (listPerson[index].type == "employee") {
+                listPerson[index] = new Employee(updatedPerson.id, updatedPerson.name, updatedPerson.address, updatedPerson.email, updatedPerson.type, updatedPerson.workingDay, updatedPerson.dailyWage, updatedPerson.salary);
+                listPerson[index].calculateSalary(); 
+
+            } else {
+                listPerson[index] = new Customer(updatedPerson.id, updatedPerson.name, updatedPerson.address, updatedPerson.email, updatedPerson.type, updatedPerson.companyName, updatedPerson.invoiceValue, updatedPerson.review);
+            }
+
+
+        }
+    }
 }
 
 // TODO: Save data to localStorage 
