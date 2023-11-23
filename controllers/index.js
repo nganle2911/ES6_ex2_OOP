@@ -2,7 +2,7 @@ import Customer from "../models/Customer.js";
 import Employee from "../models/Employee.js";
 import Person from "../models/Person.js";
 import Student from "../models/Student.js";
-import { getDataModal, getEleById, hideAll, renderListPeople } from "./controller.js";
+import { getDataModal, getEleById, hideAll, renderListPeople, sortListByType } from "./controller.js";
 import { checkAllLetter, checkEmail, checkEmpty, checkId, checkNumber, checkRange, checkType } from "./validation.js";
 
 
@@ -10,7 +10,6 @@ import { checkAllLetter, checkEmail, checkEmpty, checkId, checkNumber, checkRang
 const htmlElements = ["inputMath", "inputPhysics", "inputChemistry", "inputWorkingDay", "inputWage", "inputCompany", "inputInvoice", "inputReview"];
 
 let listPerson = []; 
-
 
 /**
  * TODO: Create a function which changes the UI of modal when choosing the different types of person
@@ -221,7 +220,7 @@ window.updatePerson = () => {
     if (index != -1) {  
         // update 
         listPerson[index] = updatedPerson;
-        console.log("updatedPerson", listPerson[index]);
+        // console.log("updatedPerson", listPerson[index]);
 
         // check validation when updating
         let isValid = true; 
@@ -270,6 +269,38 @@ window.updatePerson = () => {
             saveLocalStorage();
         }
     }
+}
+
+// TODO: Filter listPerson by type 
+getEleById("sortAll").onclick = () => {
+    renderListPeople(listPerson);
+}
+getEleById("sortStu").onclick = () => {
+    let listStu = sortListByType("student", listPerson);
+    renderListPeople(listStu);
+}
+getEleById("sortEmp").onclick = () => {
+    let listEmp = sortListByType("employee", listPerson);
+    renderListPeople(listEmp);
+}
+getEleById("sortCus").onclick = () => {
+    let listCus = sortListByType("customer", listPerson);
+    renderListPeople(listCus);
+}
+
+// TODO: Filter listPerson by name
+getEleById("sortAsc").onclick = () => {
+    let temp; 
+    for (let i = 0; i < listPerson.length; i++) {
+        for (let j = 1; j < listPerson.length; j++) {
+            if (listPerson[i].name > listPerson[j].name) {
+                temp = listPerson[i];
+                listPerson[i] = listPerson[j];
+                listPerson[j] = temp; 
+            }
+        } 
+    }
+    console.log("list", listPerson);
 }
 
 // TODO: Save data to localStorage 

@@ -204,6 +204,18 @@ const displayDetailInfo = (personObject) => {
     return contentDetailItem; 
 }
 
+// TODO: Sort list by type 
+const sortListByType = (typeValue, personList) => {
+    let newList = [];
+    personList.map((item) => {
+        if (item.type == typeValue) {
+            newList.push(item);
+        }
+    });
+
+    return newList;
+}
+
 export {
-    getEle, getEleById, hideAll, getDataModal, renderListPeople, displayModalDetail, displayDetailInfo
+    getEle, getEleById, hideAll, getDataModal, renderListPeople, displayModalDetail, displayDetailInfo, sortListByType
 }

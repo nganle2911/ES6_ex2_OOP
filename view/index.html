@@ -50,11 +50,23 @@
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="bi bi-funnel-fill"></i>
+                            Name
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">By type</a></li>
-                            <li><a class="dropdown-item" href="#">By name ascending</a></li>
-                            <li><a class="dropdown-item" href="#">By name descending</a></li>
+                            <li><a id="sortAsc" class="dropdown-item" href="#">Name ascending</a></li>
+                            <li><a id="sortDes" class="dropdown-item" href="#">Name descending</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-funnel-fill"></i>
+                            Type
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a id="sortAll" class="dropdown-item" href="#">All</a></li>
+                            <li><a id="sortStu" class="dropdown-item" href="#">Student</a></li>
+                            <li><a id="sortEmp" class="dropdown-item" href="#">Employee</a></li>
+                            <li><a id="sortCus" class="dropdown-item" href="#">Customer</a></li>
                         </ul>
                     </div>
                     <div class="btnAdd">
@@ -293,7 +305,8 @@
         </div>
     </div>
 
-    
+
+    <!-- My Script -->
     <script>
         const myModalEl = document.getElementById("myModal");
         myModalEl.addEventListener("show.bs.modal", event => {
