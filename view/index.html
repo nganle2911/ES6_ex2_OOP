@@ -157,7 +157,7 @@
                                         <i class="bi bi-briefcase"></i>
                                     </span>
 								</div>
-								<select class="form-control" name="type" id="typePerson">
+								<select onchange="changeModal()" class="form-control" name="type" id="typePerson">
                                     <option>Choose person's type</option>
                                     <option value="student">Student</option>
                                     <option value="employee">Employee</option>
@@ -285,7 +285,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button onclick="clearModal()" id="btnClose" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button onclick="addPerson()" type="button" class="btn btn-primary" id="btnAdd">Add</button>
                     <button onclick="updatePerson()" class="btn btn-warning" id="btnUpdate" style="display: none;">Update</button>
                 </div>
@@ -293,9 +293,18 @@
         </div>
     </div>
 
+    
+    <script>
+        const myModalEl = document.getElementById("myModal");
+        myModalEl.addEventListener("show.bs.modal", event => {
+            document.getElementById("btnAdd").style.display = "block";
+            document.getElementById("btnUpdate").style.display = "none";
+        })
+    </script>
     <!-- BS5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- My Index JS -->
     <script type="module" src="../controllers/index.js"></script>
+    
 </body>
 </html>

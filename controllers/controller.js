@@ -204,7 +204,6 @@ const displayDetailInfo = (personObject) => {
     return contentDetailItem; 
 }
 
-
 export {
     getEle, getEleById, hideAll, getDataModal, renderListPeople, displayModalDetail, displayDetailInfo
 }

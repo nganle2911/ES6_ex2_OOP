@@ -23,7 +23,7 @@ let listPerson = [];
  *  - If type == 3 => customer => display 3 more inputs of companyName, invoiceValue, review
  * Output: display more input elements according to the type of person
  */
-getEleById("typePerson").onchange = () => {
+window.changeModal = () => {
     let type = getEleById("typePerson").value;
 
     // hide all html elements 
@@ -261,7 +261,13 @@ window.updatePerson = () => {
                 listPerson[index] = new Customer(updatedPerson.id, updatedPerson.name, updatedPerson.address, updatedPerson.email, updatedPerson.type, updatedPerson.companyName, updatedPerson.invoiceValue, updatedPerson.review);
             }
 
+            // clear modal 
+            clearModal();
 
+            // re-render listPerson
+            renderListPeople(listPerson);
+            // save to localStorage
+            saveLocalStorage();
         }
     }
 }
@@ -300,5 +306,12 @@ const getLocalStorage = () => {
         renderListPeople(listPerson);
     }
 }
-
 getLocalStorage();
+
+// TODO: Clear modal 
+window.clearModal = () => {
+    getEleById("myForm").reset();
+    getEleById("id").disabled = false;
+    getEleById("typePerson").disabled = false;
+    changeModal();
+}
