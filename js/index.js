@@ -1,9 +1,9 @@
-import Customer from "../models/Customer.js";
-import Employee from "../models/Employee.js";
-import Person from "../models/Person.js";
-import Student from "../models/Student.js";
-import { getDataModal, getEleById, hideAll, renderListPeople, sortListByName, sortListByType } from "./controller.js";
-import { checkAllLetter, checkEmail, checkEmpty, checkId, checkNumber, checkRange, checkType } from "./validation.js";
+import Customer from "./models/Customer.js";
+import Employee from "./models/Employee.js";
+import Student from "./models/Student.js";
+import { getDataModal, getEleById, hideAll, renderListPeople, sortListByName, sortListByType } from "./controllers/controller.js";
+import { checkAllLetter, checkEmail, checkEmpty, checkId, checkNumber, checkRange, checkType } from "./controllers/validation.js";
+import Person from "./models/Person.js";
 
 
 // list IDs of all html elements that need to be changed for different types of person

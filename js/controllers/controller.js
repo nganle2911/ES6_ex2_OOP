@@ -1,10 +1,9 @@
 import Customer from "../models/Customer.js";
-import Employee from "../models/Employee.js";
 import Person from "../models/Person.js";
 import Student from "../models/Student.js";
+import Employee from "../models/Employee.js";
 
-// TODO: Get HTML element 
-const getEle = (selector) => document.querySelector(selector);
+// TODO: Get HTML element by ID 
 const getEleById = (selectorId) => document.getElementById(selectorId);
 
 // TODO: Hide all html elements of different type person
@@ -231,5 +230,5 @@ const sortListByName = (personList) => {
 }
 
 export {
-    getEle, getEleById, hideAll, getDataModal, renderListPeople, displayModalDetail, displayDetailInfo, sortListByType, sortListByName
+    getEleById, hideAll, getDataModal, renderListPeople, displayModalDetail, displayDetailInfo, sortListByType, sortListByName
 }

@@ -1,4 +1,5 @@
-import { getEleById } from "./controller.js"
+import { getEleById } from "./controller.js";
+
 
 // TODO: Check if input is empty
 const checkEmpty = (value, idErr) => {
