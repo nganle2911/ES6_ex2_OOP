@@ -135,7 +135,7 @@ const displayModalDetail = (personObject) => {
     `;
 
     return contentModalDetail;
-};
+}
 
 // TODO: Display detailInfo for different types of person
 const displayDetailInfo = (personObject) => {
@@ -216,6 +216,20 @@ const sortListByType = (typeValue, personList) => {
     return newList;
 }
 
+// TODO: Sort list by name
+const sortListByName = (personList) => {
+    personList.sort((firstEl, secondEl) => {
+        if (firstEl.name.toLowerCase() < secondEl.name.toLowerCase()) {
+            return -1;
+        }
+        if (firstEl.name > secondEl.name) {
+            return 1;
+        }
+        return 0; 
+    });
+    return personList; 
+}
+
 export {
-    getEle, getEleById, hideAll, getDataModal, renderListPeople, displayModalDetail, displayDetailInfo, sortListByType
+    getEle, getEleById, hideAll, getDataModal, renderListPeople, displayModalDetail, displayDetailInfo, sortListByType, sortListByName
 }

@@ -2,7 +2,7 @@ import Customer from "../models/Customer.js";
 import Employee from "../models/Employee.js";
 import Person from "../models/Person.js";
 import Student from "../models/Student.js";
-import { getDataModal, getEleById, hideAll, renderListPeople, sortListByType } from "./controller.js";
+import { getDataModal, getEleById, hideAll, renderListPeople, sortListByName, sortListByType } from "./controller.js";
 import { checkAllLetter, checkEmail, checkEmpty, checkId, checkNumber, checkRange, checkType } from "./validation.js";
 
 
@@ -103,8 +103,8 @@ window.addPerson = () => {
         // push this object to listPeople
         listPerson = [...listPerson, person];
 
-        // reset modal
-        getEleById("myForm").reset(); 
+        // clear modal
+        clearModal();
 
         // save to localStorage 
         saveLocalStorage();
@@ -212,7 +212,6 @@ window.updatePerson = () => {
         invoiceValue: getEleById("invoiceValue").value,
         review: getEleById("review").value
     }; 
-    // console.log("updatedPerson", updatedPerson);
 
     // find the index of updatedPerson in listPerson
     let index = listPerson.findIndex(item => item.id == updatedPerson.id);
@@ -220,7 +219,6 @@ window.updatePerson = () => {
     if (index != -1) {  
         // update 
         listPerson[index] = updatedPerson;
-        // console.log("updatedPerson", listPerson[index]);
 
         // check validation when updating
         let isValid = true; 
@@ -247,7 +245,6 @@ window.updatePerson = () => {
         }
 
         if (isValid) {
-            // console.log("updated info", listPerson[index]);
             if (listPerson[index].type == "student") {
                 listPerson[index] = new Student(updatedPerson.id, updatedPerson.name, updatedPerson.address, updatedPerson.email, updatedPerson.type, updatedPerson.math, updatedPerson.physics, updatedPerson.chemistry, updatedPerson.averageScore);
                 listPerson[index].calculateAverageScore();
@@ -265,6 +262,7 @@ window.updatePerson = () => {
 
             // re-render listPerson
             renderListPeople(listPerson);
+
             // save to localStorage
             saveLocalStorage();
         }
@@ -290,17 +288,13 @@ getEleById("sortCus").onclick = () => {
 
 // TODO: Filter listPerson by name
 getEleById("sortAsc").onclick = () => {
-    let temp; 
-    for (let i = 0; i < listPerson.length; i++) {
-        for (let j = 1; j < listPerson.length; j++) {
-            if (listPerson[i].name > listPerson[j].name) {
-                temp = listPerson[i];
-                listPerson[i] = listPerson[j];
-                listPerson[j] = temp; 
-            }
-        } 
-    }
-    console.log("list", listPerson);
+    let newList = sortListByName(listPerson);
+    renderListPeople(newList);
+}
+getEleById("sortDes").onclick = () => {
+    let newList = sortListByName(listPerson);
+    newList.reverse();
+    renderListPeople(newList);
 }
 
 // TODO: Save data to localStorage 
